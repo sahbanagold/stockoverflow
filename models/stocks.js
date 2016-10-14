@@ -1,5 +1,5 @@
 let mongoose = require('mongoose')
-mongoose.connect('localhost:27017/test-stockoverflow')
+mongoose.connect('mongodb://stackx:stackx@ds057816.mlab.com:57816/stackx')
 
 let stocksSchema = new mongoose.Schema({
     nama_barang: String,
