@@ -1,0 +1,42 @@
+extends layout
+
+block content
+    center  
+      img.img-fluid(src='http://i.imgur.com/bggR8FB.png', alt='' style='height:70px')  
+    .modal-dialog(role='document')
+      // Content
+      .modal-content
+        // Header
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+          h3#myModalLabel.modal-title Edit Stock :
+        // Body
+        form
+          .modal-body
+            br
+            input#photo(type='hidden', name='photo')
+            input#modal_id(type='hidden')
+            input#mode(type='hidden')
+            .md-form
+              i.fa.fa-tag.prefix
+              input#form32.form-control(type='text', name='nama_barang')
+              label(for='form34') Nama Barang
+            .md-form
+              i.fa.fa-tag.prefix
+              input#form32.form-control(type='text', name='photo')
+              label(for='form34') Photo location
+            .md-form
+              i.fa.fa-usd.prefix
+              input#form22.form-control(type='text', name='harga')
+              label(for='form42') Harga
+            .md-form
+              i.fa.fa-align-justify.prefix
+              input#form32.form-control(type='text', name='jumlah')
+              label(for='form34') Jumlah
+          // Footer
+          .modal-footer
+            button.btn.btn-primary(type='button' onclick='update_stock()') Save Changes
+            a.btn.btn-secondary(type='button',href='/stocks') Cancel
+  block script
+  block ajaxscript

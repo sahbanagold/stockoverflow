@@ -11,6 +11,7 @@ router.get('/stock', function(req, res, next) {
 });
 
 router.post('/stock', function(req, res, next) {
+  console.log(req.body);
     let newStock = new Stocks({
         nama_barang: req.body.nama_barang,
         jumlah: req.body.jumlah,
@@ -22,6 +23,7 @@ router.post('/stock', function(req, res, next) {
                 message: err
             })
         } else {
+          console.log(result)
             res.json({
                 message: "add is succesful",
                 data: result
@@ -44,10 +46,12 @@ router.put('/stock/:id', function(req, res, next) {
                 message: err
             })
         } else {
+          Stocks.findOne({_id: req.params.id},function(err2,result2){
             res.json({
-                message: "update is sucessful",
-                data: result
+                message: "update is successful",
+                data:result2
             })
+          })
         }
     })
 });
@@ -61,11 +65,14 @@ router.delete('/stock/:id', function(req, res, next) {
                 message: err
             })
         } else {
+          Stocks.findOne({_id: req.params.id},function(err,result){})
             res.json({
                 message: "delete is successful"
             })
         }
     })
 })
+
+
 
 module.exports = router;

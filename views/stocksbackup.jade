@@ -1,0 +1,58 @@
+extends layout
+
+block content
+  // Shopping Cart table
+  .table-responsive
+  table.table.product-table
+    // Table head
+    thead
+      tr
+        th
+        th Product
+        th Price
+        th QTY
+        th
+    // /Table head
+    // Table body
+    tbody#stock_table
+      // First row
+      - var language = "Jade"
+      - var goods = ['shoes.jpg', 'sweater.jpg']
+      if language == "Jade"
+      for item, i in goods
+        tr
+          th(scope='row')
+            img.img-fluid(src=`/images/${item}`, alt='')
+          td
+            h5
+              strong Sportswear
+            p.text-muted by FifeSteps
+          td 200 $
+          td
+            span.qty 1
+            
+          td
+            .btn-group(data-toggle='buttons')
+              label.btn.btn-md.btn-primary.btn-rounded
+                i.fa.fa-pencil
+            .btn-group(data-toggle='buttons')
+              label.btn.btn-md.btn-primary.btn-rounded
+                i.fa.fa-trash
+      else
+        p Not awesome
+      // /First row
+    // /Table body
+  // /Shopping Cart table
+
+  section#advanced
+    h2.doc-title
+      | Stock Over Flow
+      a.btn.btn-danger.waves-effect.waves-light(target='_blank', href='#') Go International
+    // Footer
+    footer.page-footer.center-on-small-only
+      .footer-copyright
+        .container-fluid
+          | © 2016 Copyright:
+          a(href='http://www.stockoverflow.com')  stockoverflow.com
+
+  block script

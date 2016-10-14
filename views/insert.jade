@@ -1,0 +1,35 @@
+extends layout
+
+block content
+    center 
+      img.img-fluid(src='http://i.imgur.com/bggR8FB.png', alt='' style='height:70px')  
+    .modal-dialog(role='document')
+      // Content
+      .modal-content
+        // Header
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+          h3#myModalLabel.modal-title Insert New Stock :
+        // Body
+        form
+          .modal-body
+            br
+            .md-form
+              i.fa.fa-tag.prefix
+              input#formnama.form-control(type='text', name='nama_barang')
+            .md-form
+              i.fa.fa-picture-o.prefix
+              input#formphoto.form-control(type='text', name='photo')
+            .md-form
+              i.fa.fa-usd.prefix
+              input#formharga.form-control(type='text', name='harga')
+            .md-form
+              i.fa.fa-align-justify.prefix
+              input#formjumlah.form-control(type='text', name='jumlah')
+          // Footer
+          .modal-footer
+          button.btn.btn-primary(type='button',onclick='insert_stock()') Save
+          a.btn.btn-secondary(type='button',href='/stocks') Cancel
+  block script
+  block ajaxscript
