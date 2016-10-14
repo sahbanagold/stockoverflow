@@ -1,0 +1,73 @@
+extends layout
+
+block content
+  // Shopping Cart table
+  .table-responsive
+  table.table.product-table
+    // Table head
+    thead
+      tr
+        th
+        th Product
+        th Color
+        th Size
+        th Price
+        th QTY
+        th Amount
+        th
+    // /Table head
+    // Table body
+    tbody
+      // First row
+      - var language = "Jade"
+      - var goods = ['foo', 'bar', 'baz']
+      if language == "Jade"
+      for item, i in goods
+        tr
+          th(scope='row')
+            img.img-fluid(src='http://mdbootstrap.com/images/ecommerce/products/shoes.jpg', alt='')
+          td
+            h5
+              strong Sportswear
+            p.text-muted by FifeSteps
+          td Blue
+          td 38
+          td 200 $
+          td
+            span.qty 1
+            .btn-group(data-toggle='buttons')
+              label.btn.btn-sm.btn-warning.btn-rounded
+                input#option1(type='radio', name='options')
+                | —
+              label.btn.btn-sm.btn-success.btn-rounded
+                input#option2(type='radio', name='options')
+                | +
+          td 200 $
+          td
+            button.btn.btn-sm.btn-danger(type='button', data-toggle='tooltip', data-placement='top', title='Remove item')
+              | X
+      else
+        p Not awesome
+      // /First row
+    // /Table body
+  // /Shopping Cart table
+
+  .jumbotron
+  - var language = "Jade"
+  if language == "Jade"
+  for item, i in ['foo', 'bar', 'baz']
+    img.img-fluid(src='http://mdbootstrap.com/images/ecommerce/products/shoes.jpg', alt='')
+  else
+    p Not awesome
+  section#advanced
+    h2.doc-title
+      | Stock Over Flow
+      a.btn.btn-danger.waves-effect.waves-light(target='_blank', href='#') Go International
+    // Footer
+    footer.page-footer.center-on-small-only
+      .footer-copyright
+        .container-fluid
+          | © 2016 Copyright:
+          a(href='http://www.stockoverflow.com')  stockoverflow.com
+
+  block script
