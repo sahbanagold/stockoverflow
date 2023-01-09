@@ -1,5 +1,7 @@
 let mongoose = require('mongoose')
-mongoose.connect('mongodb://stackx:stackx@ds057816.mlab.com:57816/stackx')
+mongoose.connect('mongodb://mongo:tkqpoOWfr057CfBTPlR6@containers-us-west-74.railway.app:6142')
+// mongoose.connect('mongodb://stackx:stackx@ds057816.mlab.com:57816/stackx')
+
 
 let stocksSchema = new mongoose.Schema({
     nama_barang: String,
